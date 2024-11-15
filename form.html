@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        button a:hover {
+            text-decoration: none;
+        }
+
+        main {
+            background-color: #C6C5C7;
+            display: block;
+            margin: auto;
+            width: 900px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body style="background-color: #F8F9FA;" class="container-fluid">
+
+    <header class="container-fluid">
+        <nav class="row navbar navbar-expand-sm navbar-light bg-light">
+            <a href="index.html" class="navbar-brand mb-0 h1 d-inline-flex align-items-center">
+                <img src="img/cafelogo.svg" alt="" class="logo d-inline-block ml-3">
+                <span style="color: #4F2E1B; font-weight: bold;">COFFEO</span>
+            </a>
+
+            <ul class="nav ml-auto d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" style="color:rgb(120, 120, 120); font-weight: 500;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="https://azoroasters.com/?gclid=CjwKCAjwxNW2BhAkEiwA24Cm9NTrewRe7zhDwVXKo0g42JB-UjO0MOGMSED_IsKHEThy66zdxsFfNBoCxMcQAvD_BwE" style="color: rgb(120, 120, 120); font-weight: 500;">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teste.html" target="_blank" style="color: rgb(120, 120, 120); font-weight: 500;">Trabalho</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h3 class="col-md mb-4">Formulário de pagamento</h3>
+        <form name="orcamento" id="orcamento" onsubmit="return aviso()">
+            <div class="form-group col-md-12">
+                <label for="inputNome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="inputNome" placeholder="Seu nome" required>
+              </div>
+
+            <div class="form-group col-md-12">
+              <label for="telefone">Telefone</label>
+              <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(xx)xxxxx-xxxx" maxlength="14" onkeypress="mascara_tel(this)" required>
+            </div>
+
+            <div class="form-group col-md-12">
+              <label for="inputEndereco">Endereço</label>
+              <input type="text" class="form-control" id="inputEndereco" placeholder="Seu endereço" required>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="inputPagamento">Pagamento</label>
+                <select id="inputPagamento" name="inputPagamento" class="form-control" onchange="abrir()">
+                  <option>Cartão de débito</option>
+                  <option>Dinheiro</option>
+                </select>
+            </div>
+              
+          <div class="form-group col-md-9 mr-auto ml-auto mb-4 mt-4 border border-dark rounded p-3" id="cartao">
+            <fieldset>
+              <label for="num"> Nº do Cartão </label>
+              <input type="text" class="form-control" name="num" id="num" onkeydown="return somente_numero(event)" onkeypress="mascara_cartao(this)" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" onkeyup="salto(this.name,this.value)" required>
+
+              <label for="cod"> Codigo de Segurança </label>
+              <input type="text" class="form-control" name="cod" onkeydown="return somente_numero(event)" maxlength="3" placeholder="xxx" onkeyup="salto(this.name,this.value)" required>
+
+              <label for="vencimento"> Vencimento </label>
+              <input type="text" class="form-control" name="vencimento" onkeydown="return somente_numero(event)" placeholder="MM/AA" maxlength="5" onkeypress="mascara_data(this)" required>
+            </fieldset>
+            
+          </div>
+            </div>
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+                <button type="button" class="btn btn-secondary"><a href="index.html" style="color: white;">Cancelar</a></button>
+            </div>
+          </form>
+    </main>
+
+    <script src="js/script1.js"></script>
+</body>
+</html>
